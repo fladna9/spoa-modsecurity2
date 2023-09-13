@@ -1,0 +1,13 @@
+[Unit]
+Description=SPOA ModSecurity agent for HAProxy
+After=network.target
+
+[Service]
+Type=exec
+User=spoa
+Restart=always
+ExecStart=/opt/spoa-modsec/bin/spoa -n64 -f /opt/spoa-modsec/coreruleset-3.3.0/spoa.conf
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
